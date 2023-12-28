@@ -25,7 +25,8 @@
             $parte_inteira = (int) $numero;
             $parte_decimal = $numero - $parte_inteira;
 
-            print("<p>De acordo com o número $numero:</p>");
+            print("<p>De acordo com o número <em>". 
+            number_format($numero, 2, ",", ".") ."</em>:</p>");
             print("<p>* 
             A parte inteira é <strong><em>\"$parte_inteira\"</em>
             </strong></p>");
