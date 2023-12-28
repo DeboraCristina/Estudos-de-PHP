@@ -1,4 +1,4 @@
-# Desafios para fechar módulo 1
+# Desafios
 
 1. Sucessor e Antecessor
     > Receber um valor númerico e mostrar seu sucessor e antecessor
