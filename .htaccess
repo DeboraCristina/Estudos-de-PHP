@@ -1,0 +1,7 @@
+#Options +Indexes
+# Ativa a listagem de diretórios
+Options +Indexes
+
+# Usa o arquivo style.css para estilizar a página
+HeaderName style.css
+ReadmeName footer.html
