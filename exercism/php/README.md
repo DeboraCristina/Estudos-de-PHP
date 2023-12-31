@@ -1,3 +1,6 @@
+<img src="My journey through PHP.svg" alt="">
+
+
 ```mermaid
 flowchart TB
 a([Básico]); b([Booleaons]); c([Operadores Aritméticos]);
@@ -12,35 +15,36 @@ g & k --> i
 i --> j
 ```
 
-> Básico
-> Exercício: lasagna
+<strong>Básico</strong>
+<strong>Exercício:</strong> lasagna
 
-> Booleaons
-> Exercício: annalyns-infiltration
+<strong>Booleaons</strong>
+<strong>Exercício:</strong> annalyns-infiltration
 
-> Operadores Aritméticos
-> Exercício: pizza-pi
+<strong>Operadores Aritméticos</strong>
+<strong>Exercício:</strong> pizza-pi
 
-> Números De Ponto Flutuante
-> Exercício: pizza-pi
+<strong>Números De Ponto Flutuante</strong>
+<strong>Exercício:</strong> pizza-pi
 
-> Iteiros
-> Exercício: pizza-pi
+<strong>Iteiros</strong>
+<strong>Exercício:</strong> pizza-pi
 
-> Strings
-> Exercício: sweethearts
+<strong>Strings</strong>
+<strong>Exercício:</strong> sweethearts
 
-> Arrays
-> Exercício: language-list
+<strong>Arrays</strong>
+<strong>Exercício:</strong> language-list
 
-> Classes
-> Exercício: windowing-system
+<strong>Classes</strong>
+<strong>Exercício:</strong> windowing-system
 
-> Argumentos De Tamanho Variado
-> Exercício: language-list
+<strong>Argumentos De Tamanho Variado</strong>
+<strong>Exercício:</strong> language-list
 
-> Declaração De Tipo
-> Exercício: city-office
+<strong>Declaração De Tipo</strong>
+<strong>Exercício:</strong> city-office
 
-> Manipulação De Tipos
-> Exercício: lucky-numbers
+<strong>Manipulação De Tipos</strong>
+<strong>Exercício:</strong> lucky-numbers
+
