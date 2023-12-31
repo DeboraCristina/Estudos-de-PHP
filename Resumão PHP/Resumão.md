@@ -3,6 +3,7 @@
 - [[#Variaveis e Constantes;]]
 - [[#Tipos e Converção de Tipos;]]
 - [[#Strings e Manipulação de Strings;]]
+- [[#Array e estruturas de dados]]
 - [[#Operações e Funções Aritiméticas;]]
 - [[#Operadores condicionais;]]
 - [[#Tipos de Condicionais;]]
@@ -90,6 +91,11 @@
     }
     echo "</p>";
 
+	// concatena elementos de um array
+	$arrayDeSubstrings = ["hello", 'world'];
+	$str = implode(", ", $arrayDeSubstrings);
+    echo "<p>$str</p>";
+
 	//str_replace
 	$str = "";
 	$str_2 = str_replace('', '', $str);
@@ -102,14 +108,68 @@
 ```php
 <?php
     // Array simples
-    $array = ["a", 'b', c];
-    echo $array[0];
+    $array = ["a", 'b', 'c'];
+    print_r($array);
+    echo "<br>";
+    
     // Array com chave
-    // len
-    // pop
-    // append
-    // remover elemento especifico
-
+    $array = [];
+    
+    // Retorna o número de elementos em um array.
+    $count = count($array);
+    echo "<p>$count</p>";
+    echo "<br>";
+    
+    // Adiciona um ou mais elementos no final de um array.
+    array_push($array, "elemento1", "elemento2");
+    print_r($array);
+    echo "<br>";
+    
+    // Remove e retorna o último elemento de um array.
+    $ultimoElemento = array_pop($array);
+    print_r($array);
+    echo "<br>";
+    
+    // Remove e retorna o primeiro elemento de um array.
+    $primeiroElemento = array_shift($array);
+    print_r($array);
+    echo "<br>";
+    
+    // Adiciona um ou mais elementos no início de um array.
+    array_unshift($array, "elemento1", "elemento2");
+    print_r($array);
+    echo "<br>";
+    
+    // Combina dois ou mais arrays.
+    $novoArray = array_merge($array1, $array2);
+    print_r($array);
+    echo "<br>";
+    
+    // Retorna uma parte de um array.
+    $parteArray = array_slice($array, 2, 3);
+    print_r($parteArray);
+    echo "<br>";
+    
+    // Remove uma porção de elementos e substitui por outros.
+    array_splice($array, 1, 2, array("novoElemento1", "novoElemento2"));
+    print_r($array);
+    echo "<br>";
+    
+    // Verifica se uma chave existe em um array associativo.
+    $bool = array_key_exists('chave', $array);
+    echo "<p>$bool</p>";
+    echo "<br>";
+    
+    // Verifica se um valor existe em um array
+    $bool = in_array('valor', $array);
+    echo "<p>$bool</p>";
+    echo "<br>";
+    
+    // Soma o conteudo de um array
+    $soma = array_sum([1, 2]);
+    echo "<p>$soma</p>";
+    echo "<br>";
+    
 ```
 
 ## Operações e Funções Aritiméticas;
@@ -133,10 +193,12 @@
 ## Operadores condicionais;
 > '>=' <br>
 > '<=' <br>
-> '==' <br>
+> '\==' <br>
 > '!=' <br>
-> '===' Exatamente igual, considera valor&tipo <br>
-> '!==' Exatamente diferente <br>
+> '=\==' Exatamente igual, considera valor&tipo <br>
+> '!\==' Exatamente diferente <br>
+>  '&&' `ou` 'and' condicional e <br>
+>  '||' `ou` 'or' condicional ou <br>
 
 ```php
 <?php
