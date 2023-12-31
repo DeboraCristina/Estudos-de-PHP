@@ -1,6 +1,3 @@
-<img src="My journey through PHP.svg" alt="">
-
-
 ```mermaid
 flowchart TB
 a([Básico]); b([Booleaons]); c([Operadores Aritméticos]);
