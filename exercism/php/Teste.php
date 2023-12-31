@@ -16,7 +16,7 @@ class Teste
         }
     }
 
-    public static function assertFalse($a, $b)
+    public static function assertDiferents($a, $b)
     {
         if ($a !== $b)
         {
@@ -28,5 +28,21 @@ class Teste
             echo "<p style=\"color=red\">$b</p>";
             echo "<p style=\"color=red\">FAIL</p><br>";
         }
+    }
+
+    public static function assertTrue($a)
+    {
+        if ($a)
+            echo "<p style=\"color: green\">OK</p><br>";
+        else
+            echo "<p style=\"color=red\">FAIL</p><br>";
+    }
+
+    public static function assertFalse($a)
+    {
+        if (!$a)
+            echo "<p style=\"color: green\">OK</p><br>";
+        else
+            echo "<p style=\"color=red\">FAIL</p><br>";
     }
 }

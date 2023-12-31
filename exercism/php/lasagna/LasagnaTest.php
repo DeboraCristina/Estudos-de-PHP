@@ -30,4 +30,4 @@ $lasagna = new Lasagna();
 Teste::assertEquals("Ding!", $lasagna->alarm());
 
 $lasagna = new Lasagna();
-Teste::assertFalse("Dong!", $lasagna->alarm());
+Teste::assertDiferents("Dong!", $lasagna->alarm());
