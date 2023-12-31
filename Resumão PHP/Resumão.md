@@ -1,14 +1,16 @@
 # Resumão php
 
-- Variaveis e Constantes;
-- Tipos e Converção de Tipos;
-- Strings e Manipulação de Strings;
-- Operações e Funções Aritiméticas;
-- Operadores condicionais;
-- Tipos de Condicionais;
-- Tipos de Loopings;
-- Funções;
-- Classes e Paradigma OO;
+- [[#Variaveis e Constantes;]]
+- [[#Tipos e Converção de Tipos;]]
+- [[#Strings e Manipulação de Strings;]]
+- [[#Operações e Funções Aritiméticas;]]
+- [[#Operadores condicionais;]]
+- [[#Tipos de Condicionais;]]
+- [[#Tipos de Loopings;]]
+- [[#Funções;]]
+- [[#Classes e Paradigma OO;]]
+- [[#Conecção com Banco de Dados]]
+- [[#Conecção com API]]
 
 ## Variaveis e Constantes;
 > - Variaveis
@@ -31,7 +33,6 @@
 ```
 
 ## Tipos e Converção de Tipos;
-> 
 
 ```php
 <?php
@@ -88,10 +89,15 @@
         echo $msg;
     }
     echo "</p>";
+
+	//str_replace
+	$str = "";
+	$str_2 = str_replace('', '', $str);
+    echo "<p>$str</p>";
+
 ```
 
 ## Array e estruturas de dados
->
 
 ```php
 <?php
@@ -107,7 +113,6 @@
 ```
 
 ## Operações e Funções Aritiméticas;
-> 
 
 ```php
 <?php
@@ -126,17 +131,12 @@
 ```
 
 ## Operadores condicionais;
-> '>='
->
-> '<='
->
-> '=='
->
-> '!='
->
-> '===' Exatamente igual, considera valor&tipo
->
-> '!==' Exatamente diferente
+> '>=' <br>
+> '<=' <br>
+> '==' <br>
+> '!=' <br>
+> '===' Exatamente igual, considera valor&tipo <br>
+> '!==' Exatamente diferente <br>
 
 ```php
 <?php
@@ -154,9 +154,8 @@
 ```
 
 ## Tipos de Condicionais;
-> if ... else
->
-> switch ... case
+> if ... else <br>
+> switch ... case <br>
 
 ```php
     $a = 1;
@@ -182,11 +181,9 @@
 ```
 
 ## Tipos de Loopings;
-> for
->
-> foreach
->
-> while
+> for <br>
+> foreach <br>
+> while <br>
 
 ```php
 <?php
@@ -240,16 +237,30 @@
     
     echo "<p>" . parametros_especificado(2, 5) . "</p>";
 
+    // função com parâmetros variaveis
+    function parâmetros_variaveis(... $parametros)
+    {
+        $txt = '';
+        foreach($parametros as $parametro)
+        {
+            $txt = $txt . $parametro . ' ';
+        }
+        return $txt;
+    }
+
+    echo "<p>" . parâmetros_variaveis(2, 5) . "</p>";
+    echo "<p>" . parâmetros_variaveis(2, 5, 10, 18) . "</p>";
+
 ```
 
 ## Classes e Paradigma OO;
-> Classe 
-> Construtor
-> importar classe
-> Herança
-> Interface
-> Polimorfismo
-> Pacote
+> Classe  <br>
+> Construtor <br>
+> importar classe <br>
+> Herança <br>
+> Interface <br>
+> Polimorfismo <br>
+> Empacotamento <br>
 
 ```php
 <?php
@@ -274,8 +285,38 @@ $fulano = new Pessoa("Funano", 20);
 $fulano->mostra_dados();
 ```
 
-## Banco de Dados
+## Conecção com Banco de Dados
 >
 
 ```php
+```
+
+## Conecção com API
+>
+
+```php
+<?php
+	echo "<h1>Exemplo Conversão de Moedas</h1>"
+	$data_hoje = date("m/d/Y");
+
+	$data_inicio = date("m/d/Y", strtotime("-7 days"));;
+
+	$url = 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@dataInicial=\'' . $data_inicio . '\'&@dataFinalCotacao=\'' . $data_hoje . '\'&$top=1&$orderby=dataHoraCotacao%20desc&$format=json&$select=cotacaoCompra,dataHoraCotacao';
+
+	$dados = json_decode(file_get_contents($url), true);
+
+	$cotacao = $dados["value"][0]["cotacaoCompra"];
+
+	$real = 15.5;
+
+	$dollar = $real * $cotacao;
+	
+	$real = str_replace(".", ",", $real);
+
+	$dollar = str_replace(".", ",", $dollar);
+
+	echo "<p>O valor <em>R$ $real</em> equivale a <strong>US$ $dollar</strong></p>";
+
+	echo "<p><sub>
+	<strong><em>Cotação de $cotacao </em></strong>($data_hoje)</sub></p>";
 ```

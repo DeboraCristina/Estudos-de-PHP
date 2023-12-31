@@ -28,10 +28,11 @@
             $cotacao = $dados["value"][0]["cotacaoCompra"];
 
             $real = $_GET["valor"] ?? 0.0;
-            $dollar = $real * $cotacao;
+            $dollar = $real / $cotacao;
 
-            $real = str_replace(".", ",", $real);
-            $dollar = str_replace(".", ",", $dollar);
+            $real = number_format($real, 2, ",", '.');
+            $dollar = number_format($dollar, 2, ",", '.');
+            $cotacao = number_format($dados["value"][0]["cotacaoCompra"], 2, ",", '.');
 
             echo "<p>O valor <em>R$ $real</em> equivale a <strong>US$ $dollar</strong></p>";
             echo "<p><sub>
