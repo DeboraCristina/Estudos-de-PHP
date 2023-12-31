@@ -9,8 +9,8 @@
 - [[#Tipos de Loopings;]]
 - [[#Funções;]]
 - [[#Classes e Paradigma OO;]]
-- [[#Conecção com Banco de Dados]]
-- [[#Conecção com API]]
+- [[#Conexão com Banco de Dados]]
+- [[#Conexão com API]]
 
 ## Variaveis e Constantes;
 > - Variaveis
@@ -57,7 +57,7 @@
     var_dump($array);
 ```
 
-## Manipulação de Strings;
+## Strings e Manipulação de Strings;
 
 ```php
 <?php
@@ -285,38 +285,36 @@ $fulano = new Pessoa("Funano", 20);
 $fulano->mostra_dados();
 ```
 
-## Conecção com Banco de Dados
+## Conexão com Banco de Dados
 >
 
 ```php
 ```
 
-## Conecção com API
+## Conexão com API
 >
 
 ```php
 <?php
-	echo "<h1>Exemplo Conversão de Moedas</h1>"
+	echo "<h1>Exemplo Conversão de Moedas</h1>";
 	$data_hoje = date("m/d/Y");
-
 	$data_inicio = date("m/d/Y", strtotime("-7 days"));;
 
 	$url = 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@dataInicial=\'' . $data_inicio . '\'&@dataFinalCotacao=\'' . $data_hoje . '\'&$top=1&$orderby=dataHoraCotacao%20desc&$format=json&$select=cotacaoCompra,dataHoraCotacao';
 
 	$dados = json_decode(file_get_contents($url), true);
-
 	$cotacao = $dados["value"][0]["cotacaoCompra"];
 
 	$real = 15.5;
+	$dollar = $real / $cotacao;
 
-	$dollar = $real * $cotacao;
-	
-	$real = str_replace(".", ",", $real);
+	$real = number_format($real, 2, ",", '.');
+	$dollar = number_format($dollar, 2, ",", '.');
+	$cotacao = number_format($dados["value"][0]["cotacaoCompra"], 2, ",", '.');
 
-	$dollar = str_replace(".", ",", $dollar);
-
-	echo "<p>O valor <em>R$ $real</em> equivale a <strong>US$ $dollar</strong></p>";
+	echo "<p>O valor <em>R$ $real</em> equivale a 
+		<strong>US$ $dollar</strong></p>";
 
 	echo "<p><sub>
-	<strong><em>Cotação de $cotacao </em></strong>($data_hoje)</sub></p>";
+		<strong><em>Cotação de $cotacao </em></strong>($data_hoje)</sub></p>";
 ```
