@@ -1,0 +1,26 @@
+services:
+  laravel-docker:
+    container_name: laravel-docker
+    # O container será construído e configurado no mesmo
+    # diretório do arquivo docker-compose
+    build: .
+    volumes:
+      - ./laravel-app:/var/www/html
+    ports:
+      - 8080:80
+  
+  mysql_db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: Laravel_docker
+    ports:
+      - 3306:3306
+  
+  # Verificar se é realmente necessário
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - 9001:80
+    environment:
+      - PMA_ARBITRARY=1
