@@ -1,9 +1,5 @@
 CONTAINER_NAME = laravel-docker
 
-INSTALL:
-	chmod +x INSTALL.sh
-	./INSTALL.sh
-
 first_setup:
 	@make build
 	@make up 
